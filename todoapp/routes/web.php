@@ -1,0 +1,139 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
+use Illuminate\Http\Request;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/welcome',function(){
+    return "welcome to laravel";
+});
+
+Route::get('/tasks',function(){
+    $tasks = ['buy milk', 'okay', 'done'];
+    return $tasks;
+}); 
+
+Route::get('/task/{name}',function($name){
+    return "Task : ".$name;
+});
+
+Route::get('/task/{name}/{priority}',function($name,$priority){
+    return "Name :".$name." and priority will be ".$priority;
+});
+
+Route::get('/tasklist',function(){
+    return view('tasklist');
+});
+
+Route::get('/tasklist10',function(){
+    return view('tasklist10');
+});
+
+Route::get('/task11',function(){
+    return view('task11')->with('title','my task');
+
+});
+
+Route::get('/task12',function(){
+    $title='my task';
+    $task='Study laravel';
+    $status='Pending';
+    return view('task12',compact('title','task','status'));
+});
+
+Route::get('/task13',function(){
+    return view('task13');
+});
+
+Route::get('/task14',function(){
+    return view('task14');
+});
+
+Route::get('/task15',function(){
+    return view('task15');
+});
+
+Route::get('/task16', function () {
+    $tasks = ['Buy Milk', 'Do Laundry', 'Study Laravel'];
+    return view('task16', compact('tasks'));
+});
+
+Route::get('/task17', function () {
+    $completed = true;
+    return view('task17', compact('completed'));
+});
+
+Route::get('/task18', function () {
+    $tasks = [];
+    return view('task18', compact('tasks'));
+});
+
+Route::get('/task19', function () {
+    $status = 'completed';
+    return view('task19', compact('status'));
+});
+
+Route::get('/task20', function () {
+    return view('task20');
+});
+
+Route::get('/task21', function () {
+    return view('task21');
+});
+
+Route::get('/task22', function () {
+    return view('task22');
+});
+
+Route::get('/task23', function () {
+    return view('task23');
+});
+Route::post('/tasks/store', function () {
+    return "Form submitted successfully!";
+});//for 23
+
+Route::get('/task24', function () {
+    return view('task24');
+});
+
+Route::post('/task24/store',[TaskController::class, 'store']);//for 24
+
+Route::get('/task25',function(){
+    return view('task25');
+});
+
+Route::post('/task25/store',[TaskController::class, 'store25']);
+
+Route::get('/task26',function(){
+    return view('task26');
+});
+
+Route::post('/task26/store',[TaskController::class, 'store26']);
+
+Route::get('/task27',function(){
+    return view('task27');
+});
+
+Route::post('/task27/store',[TaskController::class, 'store27']);
+
+Route::get('/task28', function () {
+    return view('task28');
+});
+
+Route::post('/task28/store', [TaskController::class, 'store28']);
+
+Route::get('/task29', function () {
+    return view('task29');
+});
+
+Route::post('/task29/store', [TaskController::class, 'store29']);
+
+Route::get('/task30',function(){
+    return view('task30');
+});
+
+Route::post('/task30/store',[TaskController::class ,'store30']);
